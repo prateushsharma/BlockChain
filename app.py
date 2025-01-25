@@ -4,12 +4,16 @@ from blockchain import Blockchain
 from file_management import FileManager
 from ipfs import IPFSManager
 
+
 app = Flask(__name__)
 
 auth = Auth()
 blockchain = Blockchain()
 file_manager = FileManager()
-ipfs_manager = IPFSManager()
+
+pinata_api_key = "8dc26f5d53e5b5584661",
+pinata_secret_api_key =  "1581002614b253fbc6f38469ae1426c3fbb84c34df2da7319ca0ef9026030e43"
+ipfs_manager = IPFSManager(pinata_api_key,  pinata_secret_api_key)
 
 @app.route("/upload", methods=["POST"])
 def upload_file():
