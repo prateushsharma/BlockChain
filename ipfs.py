@@ -1,18 +1,13 @@
 import requests
 
 class IPFSManager:
-    # def __init__(self, ipfs_api_url="http://127.0.0.1:5001/api/v0"):
-    #     self.api_url = ipfs_api_url 
-    #  your api url is wrong, see u have written 127.0.0.1 which is on local host i.e it assumes u r running ipfs locally, not in pinata, whereas in file retriving code u are fetching from pinata.
-
     def __init__(self, pinata_api_key, pinata_api_secret):
         self.api_url = "https://api.pinata.cloud/"
         self.headers = {
-            "pinata_api_key": pinata_api_key, # put ur pinata api key here
-            "pinata_secret_api_key": pinata_api_secret, # api secret key as well
+            "pinata_api_key": "8dc26f5d53e5b5584661", # put ur pinata api key here
+            "pinata_secret_api_key": "1581002614b253fbc6f38469ae1426c3fbb84c34df2da7319ca0ef9026030e43", # api secret key as well
         }
 
-    
     def upload_file(self, file_content):
         try:
             response = requests.post(f"{self.api_url}/add", files={"file": file_content})
